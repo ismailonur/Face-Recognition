@@ -21,6 +21,19 @@
         canvas {
             position: absolute;
         }
+
+        .bar-container {
+            width: 200px;
+            height: 30px;
+            margin: 40px;
+            background-color: gray;
+        }
+
+        .bar {
+            background-color: green;
+            height: 100%;
+            width: 0%;
+        }
     </style>
 
     <script defer src="face-api.min.js"></script>
@@ -28,6 +41,17 @@
 </head>
 
 <body>
+    <button>Yapay Zekayı Çalıştır</button>
+
+    <div>
+        <div class="bar-container">
+            <div class="bar">
+
+            </div>
+            <div><span id="run"></span></div>
+        </div>
+    </div>
+
     <input type="file" id="image" />
 </body>
 

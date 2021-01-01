@@ -8,8 +8,29 @@ Promise.all([
   faceapi.nets.ssdMobilenetv1.loadFromUri(`${localHost}/models`)
 ]).then(start);
 
+let btn = document.querySelector('button');
+
+btn.addEventListener('click', startProgress);
+
+function startProgress() {
+  this.setAttribute('disabled', true);
+  let context = this;
+      let atPercent = 0;
+      let br = document.querySelector('.bar');
+        
+      let inter = setInterval(function() {
+        if(atPercent >=100) {
+          context.removeAttribute('disabled');
+          clearInterval(inter);
+          document.getElementById('run').innerHTML = "Yapay Zeka Çalıştı! </br> Dosya Seçebilirsin";
+        }
+        br.style.width = atPercent + '%';
+        atPercent++;
+        
+      }, 30);
+}
+
 async function start() {
-  document.body.append("Tüm modeller Yüklendi..");
 
   myImage.addEventListener("change", async () => {
     const selectedImage = await faceapi.bufferToImage(myImage.files[0]);
