@@ -1,11 +1,11 @@
 const myImage = document.getElementById("image");
-const localHost = "http://127.0.0.1:5500";
+//const localHost = "http://127.0.0.1:5500";
 
 Promise.all([
   // faceapi.nets.faceRecognitionNet.loadFromUri(localHost + "/models")
-  faceapi.nets.faceRecognitionNet.loadFromUri(`${localHost}/models`),
-  faceapi.nets.faceLandmark68Net.loadFromUri(`${localHost}/models`),
-  faceapi.nets.ssdMobilenetv1.loadFromUri(`${localHost}/models`)
+  faceapi.nets.faceRecognitionNet.loadFromUri(`/models`),
+  faceapi.nets.faceLandmark68Net.loadFromUri(`/models`),
+  faceapi.nets.ssdMobilenetv1.loadFromUri(`/models`)
 ]).then(start);
 
 let btn = document.querySelector('button');
