@@ -25,7 +25,8 @@
         .bar-container {
             width: 200px;
             height: 30px;
-            margin: 40px;
+            margin-top: 20px;
+            margin-bottom: 50px;
             background-color: gray;
         }
 
@@ -41,18 +42,19 @@
 </head>
 
 <body>
-    <button>Yapay Zekayı Çalıştır</button>
+    <div id="progress">
+        <button>Yapay Zekayı Çalıştır</button>
 
-    <div>
         <div class="bar-container">
             <div class="bar">
 
             </div>
-            <div><span id="run"></span></div>
         </div>
     </div>
 
-    <input type="file" id="image" />
+    <div id="input" style="visibility: hidden">
+        <input type="file" id="image" />
+    </div>
 </body>
 
 </html>

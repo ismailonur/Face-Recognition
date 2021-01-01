@@ -15,19 +15,20 @@ btn.addEventListener('click', startProgress);
 function startProgress() {
   this.setAttribute('disabled', true);
   let context = this;
-      let atPercent = 0;
-      let br = document.querySelector('.bar');
-        
-      let inter = setInterval(function() {
-        if(atPercent >=100) {
-          context.removeAttribute('disabled');
-          clearInterval(inter);
-          document.getElementById('run').innerHTML = "Yapay Zeka Çalıştı! </br> Dosya Seçebilirsin";
-        }
-        br.style.width = atPercent + '%';
-        atPercent++;
-        
-      }, 30);
+  let atPercent = 0;
+  let br = document.querySelector('.bar');
+
+  let inter = setInterval(function () {
+    if (atPercent >= 100) {
+      context.removeAttribute('disabled');
+      clearInterval(inter);
+      document.getElementById('progress').innerHTML = ` `;
+      document.getElementById('input').style = "visibility: visible";
+    }
+    br.style.width = atPercent + '%';
+    atPercent++;
+
+  }, 30);
 }
 
 async function start() {
@@ -68,6 +69,7 @@ async function start() {
 
   const labelDescriptions = await loadImages();
   const faceMatcher = new faceapi.FaceMatcher(labelDescriptions, 0.6);
+
 }
 
 async function loadImages() {
